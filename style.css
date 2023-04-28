@@ -60,7 +60,7 @@ header {
     color: white;
     text-align: center;
     padding: 15px;
-    font-size: 1.2rem;
+    font-size: 1.75rem;
 }
 
 .status div {
@@ -163,7 +163,7 @@ main {
 }
 
 .score {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
     display: flex;
     /* flex-direction: column; */
     justify-content: end;
@@ -200,76 +200,38 @@ a {
     gap: 10px;
 }
 
-.accordian {
-    display: none;
-}
-
-label {
-    padding: 8px 22px;
-    margin: 0 0 5px 0;
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #eee;
+    color: #444;
     cursor: pointer;
-    border-radius: 3px;
-    color: #FFF;
-    transition: ease 0.1s;
+    padding: 18px;
+    width: 60%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
 }
 
-label:hover {
-    background: #4E8774;
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+    background-color: #ccc;
 }
 
+/* Style the collapsible content. Note: hidden by default */
 .content {
-    /* background: #E2E5F6; */
-    padding: 10px 25px;
-    border: 1px solid #A7A7A7;
-    margin: 0 0 1px 0;
-    border-radius: 6px;
-}
-
-.accordian + label + .content {
-	opacity: 0;
-	height: 0;
-	font-size: 0;
-	padding: 0 25px;
-	transition: ease 0.75s;
-}
-
-.accordian:checked + label + .content {
-	opacity: 1;
-	height: auto;
-	font-size: 14px;
-	padding: 10px 25px;
-}
-
-@keyframes flickerAnimation {
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
-}
-
-@-o-keyframes flickerAnimation{
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
-}
-
-@-moz-keyframes flickerAnimation{
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
-}
-
-@-webkit-keyframes flickerAnimation{
-    0%   { opacity:1; }
-    50%  { opacity:0; }
-    100% { opacity:1; }
-}
-
-.animate-flicker {
-    -webkit-animation: flickerAnimation 3s infinite;
-    -moz-animation: flickerAnimation 3s infinite;
-    -o-animation: flickerAnimation 3s infinite;
-    animation: flickerAnimation 3s infinite;
-}
+    font-size: 1.5rem;
+    margin: 0 auto;
+    width: 60%;
+    padding: 5px 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
 
 audio::-webkit-media-controls-panel {
     background-color: var(--bg-color);

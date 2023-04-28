@@ -28,15 +28,7 @@
             </header>
             <div id="selectableNums" hidden></div>
             <main>
-                <div>
-                    <input type="checkbox" id="title1" class="accordian" />
-                    <label for="title1">Game Rules&nbsp;<i class="fa-solid fa-circle-info"></i></i></label>
-    
-                    <div class="content">
-                        <p><strong>Shut The Box!</strong> is a classic pub game where players roll a pair of dice and remove tiles on the game tray that correspond with the numbers they roll. The goal of the game is to remove as many tiles as possible on a single turn before running out of options. Any tiles left upright at the end of a player's turn are added to their score.</p> 
-                        <p><strong><large>The player with the <u>lowest</u> score wins!</large></strong></p>
-                    </div>
-                </div>
+                
                 <!-- SCORE SECTION -->
                 <div class="row">
                     <main class="score">
@@ -90,7 +82,7 @@
                     
                 </main>
                 <div class="rules-container">
-                    <h4>Set Tiles:</h4>
+                    <h2>Set Tiles:</h2>
 
                     <!-- <div class="gameLinks gameActive"><a href="index.html">9</a></div> -->
                     <!-- <div class="gameLinks"><a href="shut-the-box-12.html">12</a></div> -->
@@ -111,10 +103,11 @@
                         </a>
                     </div>
                     
-                    <audio controls>
+                    <!-- <audio controls>
                         <source src="/media/mixkit-island-beat-250.mp3" type="audio/mpeg">
                         Your browser does not support the audio element.
-                    </audio>
+                    </audio> -->
+                    <div class="version"><small>v1.1</small></div>
                 </div>
             
                 <footer class="footer">
@@ -126,7 +119,14 @@
                 </footer>  
             </div>
         </div>
-        <div class="version"><small>v1.0</small></div>
+
+        <!-- GAME RULES -->
+        <button type="button" class="collapsible">Game Rules</button>
+        <div class="content">
+            <p><strong>Shut The Box!</strong> is a classic pub game where players roll a pair of dice and remove tiles on the game tray that correspond with the numbers they roll. The goal of the game is to remove as many tiles as possible on a single turn before running out of options. Any tiles left upright at the end of a player's turn are added to their score.</p> 
+            <p><strong><large>The player with the <u>lowest</u> score wins!</large></strong></p>
+        </div>
+        
 
     <script src="arr_sum_pos.js"></script>
     <script src="dice.js"></script>
