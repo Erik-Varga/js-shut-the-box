@@ -210,7 +210,7 @@ a {
     color: #444;
     cursor: pointer;
     padding: 18px;
-    width: 90%;
+    width: 95%;
     border: none;
     text-align: center;
     outline: none;
@@ -224,9 +224,9 @@ a {
 
 /* Style the collapsible content. Note: hidden by default */
 .content {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin: 0 auto;
-    width: 90%;
+    width: 95%;
     padding: 5px 18px;
     display: none;
     overflow: hidden;
