@@ -291,9 +291,10 @@ footer a:hover {
     transition: 0.3s;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .wrapper {
       height: 100%;
+      padding: 15px;
     }
     #game {
         width: 100%;
