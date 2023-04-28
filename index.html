@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/icon" href="favicon.ico">
+  
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+
+    <title>Shut the Box</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dice.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+
+        <div id="container">
+            <!-- HEADER SECTION -->
+            <header>
+                <h1>
+                    Shut the Box&nbsp;<i class="fa-solid fa-dice"></i> 9
+                </h1>
+            </header>
+            <div id="selectableNums" hidden></div>
+            <main>
+                <div>
+                    <input type="checkbox" id="title1" class="accordian" />
+                    <label for="title1">Game Rules&nbsp;<i class="fa-solid fa-circle-info"></i></i></label>
+    
+                    <div class="content">
+                        <p><strong>Shut The Box!</strong> is a classic pub game where players roll a pair of dice and remove tiles on the game tray that correspond with the numbers they roll. The goal of the game is to remove as many tiles as possible on a single turn before running out of options. Any tiles left upright at the end of a player's turn are added to their score.</p> 
+                        <p><strong><large>The player with the <u>lowest</u> score wins!</large></strong></p>
+                    </div>
+                </div>
+                <!-- SCORE SECTION -->
+                <div class="row">
+                    <main class="score">
+                        <div>
+                            Round: 
+                            <span id="rolls_count"><i class="fa-solid fa-poo-storm"></i></span>
+                            &nbsp;&nbsp;
+                            <span id="score">Score: </span>
+                            <span id="moving_sum">0</span>
+                        </div>
+                    <div>
+                </div>
+            
+            
+        </div>
+        <!-- TILE SECTION -->
+        <div class="row tile-9">
+            <div class="flap light pointer">1</div>
+            <div class="flap light pointer">2</div>
+            <div class="flap light pointer">3</div>
+            <div class="flap light pointer">4</div>
+            <div class="flap light pointer">5</div>
+            <div class="flap light pointer">6</div>
+            <div class="flap light pointer">7</div>
+            <div class="flap light pointer">8</div>
+            <div class="flap light pointer">9</div>
+        </div>             
+            
+                <!-- DICE SECTION -->
+                <div class="row">
+                    <div class="dices">
+                        <div id="dice_1"></div>
+                    </div>
+                    <div class="dices">
+                        <div id="dice_2"></div>
+                    </div>
+                </div>
+
+                <!-- ROLL DICE BUTTON -->
+                <div class="row roll-button">
+                    <input id="roll_btn" type="button" value="Roll Dice">
+                </div>
+
+                <!-- STATUS SECTION -->
+                <div class="status">
+                    <div id="info">
+                        Roll Dice <i class="fa-solid fa-circle-chevron-right"></i> 
+                        <span class="animate-flicker">Start Game</span>
+                    </div>
+                </div>
+                    
+                </main>
+                <div class="rules-container">
+                    <h4>Set Tiles:</h4>
+
+                    <div class="gameLinks gameActive"><a href="index.html">9</a></div>
+                    <div class="gameLinks"><a href="shut-the-box-12.html">12</a></div>
+                    
+                    <audio controls>
+                        <source src="/media/mixkit-island-beat-250.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            
+                <footer class="footer">
+                    <div id="info" class="card-footer" >
+                        <small>
+                            <a href="https://github.com/Erik-Varga" target="_blank">&copy; <script>document.write(new Date().getFullYear())</script> Erik Varga | Web Developer <i class="fa-brands fa-github"></i></a>
+                        </small>
+                    </div>
+                </footer>  
+        </div>
+
+    </div>
+
+    <script src="arr_sum_pos.js"></script>
+    <script src="dice.js"></script>
+    <script src="game09.js"></script>
+
+  </body>
+</html>
