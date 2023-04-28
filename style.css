@@ -83,7 +83,7 @@ main {
 
 .flap {
     display: flex;
-    /* height: 120px; */
+    height: 200px;
     flex-direction: column;
     justify-content: center;
     flex: 100%;
@@ -172,19 +172,22 @@ main {
 }
 
 .gameLinks {
-    border: 2px solid transparent;
-    width: 30px;
-    padding: 0 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid transparent;
+    width: 80px;
+    padding: 10px 20px;
     font-size: 1.5rem;
     text-align: center;
 }
 
 .gameActive,
 .gameLinks:hover {
-    border: 2px solid black;
+    border: 3px solid black;
 }
 
-.gameLinks a {
+a {
     text-decoration: none;
 }
 
@@ -301,3 +304,8 @@ footer a:hover {
     }
   }
   
+  .version {
+    display: flex;
+    justify-content: end;
+    padding-right: 7px;
+  }
