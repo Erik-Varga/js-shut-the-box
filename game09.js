@@ -198,7 +198,7 @@ function reset() {
     showDice2();
     dice2.resetEyes();
     roll_num = 0;
-    moving_sum_txt.innerHTML = 0;
+    moving_sum_txt.innerHTML = 45;
     rolls_count_txt.innerHTML = '<i class="fa-regular fa-face-grin-beam"></i>';
     selectableNums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 } 
