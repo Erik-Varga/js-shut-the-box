@@ -3,13 +3,12 @@ const d1container = document.getElementById('dice_1');
 const d2container = document.getElementById('dice_2');
 const flaps = document.querySelectorAll('.flap');
 const roll_btn = document.getElementById('roll_btn');
-
 const info_txt = document.getElementById('info');
 const score_txt = document.getElementById('score');
 const moving_sum_txt = document.getElementById('moving_sum');
 const rolls_count_txt = document.getElementById('rolls_count');
-
 const selectableNums_txt = document.getElementById('selectableNums');
+const icon_chevron_el = document.getElementById('icon_chevron');
 
 //Events
 roll_btn.addEventListener('click', roll);
@@ -31,6 +30,8 @@ let d2;
 let roll_num = 0;
 let score = 0;
 let moving_sum_dice = 0;
+// let icon_chevron = 'fa-solid fa-circle-chevron-right';
+let icon_chevron = 'fa-solid fa-arrow-right-long';
 
 // Game Rules
 var coll = document.getElementsByClassName("collapsible");
@@ -48,6 +49,7 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+// Number of Dice
 var singleDice = false;
 
 function hideDice2() {
@@ -55,24 +57,26 @@ function hideDice2() {
 }
 
 function showDice2() {
-    document.getElementById('dice_2').style.display = 'block';
+    document.getElementById('dice_2').style.display = 'unset';
+    singleDice = false;
 }
 
 function check_dice() {
     const notIncludes7 = selectableNums.includes(7);
-    console.log(`7: ${notIncludes7}`);
+    // console.log(`7: ${notIncludes7}`);
     const notIncludes8 = selectableNums.includes(8);
-    console.log(`8: ${notIncludes8}`);
+    // console.log(`8: ${notIncludes8}`);
     const notIncludes9 = selectableNums.includes(9);
-    console.log(`9: ${notIncludes9}`);
+    // console.log(`9: ${notIncludes9}`);
     const notIncludes10 = selectableNums.includes(10);
-    console.log(`10: ${notIncludes10}`);
+    // console.log(`10: ${notIncludes10}`);
     const notIncludes11 = selectableNums.includes(11);
-    console.log(`11: ${notIncludes11}`);
+    // console.log(`11: ${notIncludes11}`);
     const notIncludes12 = selectableNums.includes(12);
-    console.log(`12: ${notIncludes12}`);
+    // console.log(`12: ${notIncludes12}`);
 
-    if (!notIncludes7 && !notIncludes8 && !notIncludes9 && !notIncludes10 && !notIncludes11 && !notIncludes12) {
+    if (!notIncludes7 && !notIncludes8 && !notIncludes9 &&
+        !notIncludes10 && !notIncludes11 && !notIncludes12) {
         singleDice = true;
         hideDice2();
     } else {
@@ -80,21 +84,22 @@ function check_dice() {
         return;
     }
 
-    console.log(`Single Dice: ${singleDice}`);
+    // console.log(`Single Dice: ${singleDice}`);
 }
 
+// Role Dice
 function roll() {
 
     if (roll_btn.value == 'Restart') {
         reset();
     }
     else {
-        console.log(`MSD Score: ${moving_sum_dice}`);
-        console.log(`Array: ${selectableNums}`);
+        // console.log(`MSD Score: ${moving_sum_dice}`);
+        // console.log(`Array: ${selectableNums}`);
         
         check_dice();
         d1 = dice1.roll();
-        console.log(`d1: ${d1}`);
+        // console.log(`d1: ${d1}`);
         
         if (singleDice) {
             d2 = 0;
@@ -102,14 +107,14 @@ function roll() {
         } else {
             d2 = dice2.roll();
         }
-        console.log(`d2: ${d2}`);
+        // console.log(`d2: ${d2}`);
         
         d_total = (parseInt(d1) + parseInt(d2));
         roll_num += 1;
         roll_btn.disabled = true;
         roll_info = '';
 
-        info_txt.innerHTML = `<strong>You rolled ${d_total}</strong> <i class="fa-solid fa-circle-chevron-right"></i> Select number(s)`;
+        info_txt.innerHTML = `<strong>You rolled ${d_total}</strong> <i class="${icon_chevron}"></i> Select number(s)`;
         
         rolls_count_txt.innerHTML = `#${roll_num}`;
 
@@ -122,6 +127,7 @@ function roll() {
     selectable = true;
 }
 
+// Select Flap
 function selectFlap() {
     if (selectable) {
         let selectedNum = Number(this.innerHTML);
@@ -154,7 +160,7 @@ function selectFlap() {
     }
 }
 
-
+// Check for Flap match
 function check() {
     sum_flaps = markedNums.reduce((a, b) => a + b, 0);
     sum_dice = d1 + d2;
@@ -164,6 +170,7 @@ function check() {
     return false;
 }
 
+// Flip Flap
 function flipFlaps() {
     let markedFlaps = document.querySelectorAll('.flap.marked');
     markedFlaps.forEach((flap) => {
@@ -174,13 +181,15 @@ function flipFlaps() {
     });
 }
 
+// Update Score
 function movingSum() {
     moving_sum = parseInt(dice_sum);
     moving_sum_dice = selectableNums.reduce((a, b) => a + b, 0);
     moving_sum_txt.innerHTML = selectableNums.reduce((a, b) => a + b, 0);
-    info_txt.innerHTML = `Next <i class="fa-solid fa-circle-chevron-right"></i>  Roll Dice`;
+    info_txt.innerHTML = `Next <i class="${icon_chevron}"></i>  Roll Dice`;
 }
 
+// Game Over
 function isGameOver() {
     dice_sum = d1 + d2;
 
@@ -191,9 +200,9 @@ function isGameOver() {
     return true;
 }
 
-
+// Reset
 function reset() {
-    info_txt.innerHTML = `Roll Dice <i class="fa-solid fa-circle-chevron-right"></i> 
+    info_txt.innerHTML = `Roll Dice <i class="${icon_chevron}"></i> 
     <span class="animate-flicker">Start Game</span>`;
     roll_btn.value = 'Roll Dice';
     flaps.forEach((e) => {
@@ -206,7 +215,9 @@ function reset() {
     roll_num = 0;
     moving_sum_txt.innerHTML = 45;
     rolls_count_txt.innerHTML = '<i class="fa-regular fa-face-grin-beam"></i>';
-    selectableNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    selectableNums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 } 
 
-selectableNums_txt.innerHTML = selectableNums;
+// Selectable Numbers
+// selectableNums_txt.innerHTML = selectableNums;
+icon_chevron_el.innerHTML = `<i class="${icon_chevron}"></i>`;
