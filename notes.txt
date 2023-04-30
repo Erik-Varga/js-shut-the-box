@@ -5,3 +5,9 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/Erik-Varga/js-shut-the-box.git
 git push -u origin main
+
+
+
+
+git config --global user.email "you@example.com"
+git git config --global user.name "Your Name"

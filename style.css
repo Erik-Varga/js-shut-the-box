@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Source+Code+Pro&display=swap');
 
 * {
     margin: 0px;
@@ -162,6 +162,13 @@ main {
     padding: 0 5px;
 }
 
+.timer {
+    font-family: 'Source Code Pro', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 .score {
     font-size: 1.75rem;
     display: flex;
@@ -169,6 +176,10 @@ main {
     justify-content: end;
     align-items: center;
     /* margin: 5px; */
+}
+
+#moving_sum {
+    color: rgba(255, 255, 0, 0.8);
 }
 
 .gameLinks {
@@ -233,14 +244,39 @@ a {
     background-color: #f1f1f1;
   }
 
-audio::-webkit-media-controls-panel {
-    background-color: var(--bg-color);
-    opacity: 0.8;
+
+  
+@keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
 }
 
-audio::-webkit-media-controls-panel:hover {
-    opacity: 0.6;
+@-o-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
 }
+
+@-moz-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+
+.animate-flicker {
+    -webkit-animation: flickerAnimation 3s infinite;
+    -moz-animation: flickerAnimation 3s infinite;
+    -o-animation: flickerAnimation 3s infinite;
+    animation: flickerAnimation 3s infinite;
+}
+
 
 footer {
     text-align: center;

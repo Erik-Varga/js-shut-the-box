@@ -32,6 +32,7 @@ let roll_num = 0;
 let score = 0;
 let moving_sum_dice = 0;
 
+// Game Rules
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -47,18 +48,55 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+var singleDice = false;
+
+function hideDice2() {
+    document.getElementById('dice_2').style.display = 'none';
+}
+
+function showDice2() {
+    document.getElementById('dice_2').style.display = 'block';
+}
+
+function check_dice() {
+    const notIncludes7 = selectableNums.includes(7);
+    console.log(`7: ${notIncludes7}`);
+    const notIncludes8 = selectableNums.includes(8);
+    console.log(`8: ${notIncludes8}`);
+    const notIncludes9 = selectableNums.includes(9);
+    console.log(`9: ${notIncludes9}`);
+    const notIncludes10 = selectableNums.includes(10);
+    console.log(`10: ${notIncludes10}`);
+    const notIncludes11 = selectableNums.includes(11);
+    console.log(`11: ${notIncludes11}`);
+    const notIncludes12 = selectableNums.includes(12);
+    console.log(`12: ${notIncludes12}`);
+
+    if (!notIncludes7 && !notIncludes8 && !notIncludes9 && !notIncludes10 && !notIncludes11 && !notIncludes12) {
+        singleDice = true;
+        hideDice2();
+    } else {
+        // showDice2();
+        return;
+    }
+
+    console.log(`Single Dice: ${singleDice}`);
+}
+
 function roll() {
+
     if (roll_btn.value == 'Restart') {
         reset();
     }
     else {
         console.log(`MSD Score: ${moving_sum_dice}`);
         console.log(`Array: ${selectableNums}`);
-
+        
+        check_dice();
         d1 = dice1.roll();
         console.log(`d1: ${d1}`);
         
-        if (moving_sum_dice > 0 && moving_sum_dice < 7) {
+        if (singleDice) {
             d2 = 0;
             dice2.resetEyes();
         } else {
@@ -103,6 +141,7 @@ function selectFlap() {
             selectableNums = selectableNums.filter(x => !markedNums.includes(x));
             flipFlaps();
             movingSum();
+            console.log(`Marked: ${markedNums}`);
 
             markedNums = [];
             roll_btn.disabled = false;
@@ -162,6 +201,7 @@ function reset() {
         e.addEventListener('click', selectFlap);
     });
     dice1.resetEyes();
+    showDice2();
     dice2.resetEyes();
     roll_num = 0;
     moving_sum_txt.innerHTML = 0;
